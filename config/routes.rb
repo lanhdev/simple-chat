@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :sessions, only: [:new, :create] # equivalent: get 'sign_up' => 'sessions#new' get 'sign_in' => 'sessions#create'
   resource :users
   root 'home#index'
 
