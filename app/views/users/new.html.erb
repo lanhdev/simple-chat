@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <h1>Sign Up</h1>
+
+      <div class="ui form">
+        <%= form_for @user do |f| %>
+          <% if @user.errors.any? %>
+            <div class="ui yellow message"><%= @user.errors.full_messages.to_sentence %></div>
+          <% end %>
+          <div class="field">
+            <%= f.text_field :name, placeholder: 'Name' %>
+          </div>
+          <div class="field">
+            <%= f.text_field :email, placeholder: 'Email' %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, placeholder: 'Password' %>
+          </div>
+          <%= f.submit "Submit", disable_with: 'Submiting...', class: 'ui positive button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
