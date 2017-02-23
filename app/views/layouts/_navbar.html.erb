@@ -1,5 +1,13 @@
-<div class="ui inverted menu">
+<div class="ui green inverted menu">
   <a class="ui active item" href=<%= root_path %> >TinyChat</a>
   <a class="ui item">Inbox</a>
   <a class="ui item">Friends</a>
+  <div class="right menu">
+    <% if current_user %>
+      <%= link_to "Sign Out #{current_user}", sign_out_path, method: 'delete', class: 'ui item' %>
+    <% else %>
+      <%= link_to 'Sign Up', new_users_path, class: 'ui item' %>
+      <%= link_to 'Sign In', new_sessions_path, class: 'ui item' %>
+    <% end %>
+  </div>
 </div>
