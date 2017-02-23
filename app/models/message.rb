@@ -7,4 +7,18 @@ class Message < ApplicationRecord
   # add _id and use it foreign key
   belongs_to :sender, class_name: 'User'
   belongs_to :recipient, class_name: 'User'
+  validates :subject, :body, presence: true
+
+  def unread
+    read_at ? false : true
+  end
+
+  def self.generate_messages
+    5.times do
+      Message.create(subject: Faker::Lorem.word,
+                     body: Faker::Lorem.sentence,
+                     sender_id: rand(7..11),
+                     recipient_id: 6)
+    end
+  end
 end

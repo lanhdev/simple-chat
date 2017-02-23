@@ -28,16 +28,16 @@
     <table class="ui celled table">
       <thead>
         <tr>
-          <th>Sender</th>
-          <th>Subject</th>
+          <th class="four wide">Sender</th>
+          <th class="eight wide">Subject</th>
           <th>Time</th>
         </tr>
       </thead>
       <tbody>
         <% @messages.each do |message| %>
-          <tr>
+          <tr class=<%= message.unread ? "positive" : "" %>>
             <td><%= message.sender || "No body no body but you" %></td>
-            <td><%= message.subject %></td>
+            <td><%= link_to "#{message.subject}", message_path(message) %></td>
             <td><%= message.created_at.strftime("%b %d, %Y") %></td>
           </tr>
         <% end %>

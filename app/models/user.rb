@@ -7,8 +7,4 @@ class User < ApplicationRecord
   def to_s
     name
   end
-
-  def unread_messages
-    received_messages.where(read_at: nil)
-  end
 end

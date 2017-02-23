@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
     # return code line just prevents calling DB
     # twice or more. you will always call DB once
     return @current_user if @current_user
-    puts "session: #{session[:user_id]}"
     if session[:user_id]
-      puts 'If'
       @current_user = User.find(session[:user_id])
     end
     # Equivalent

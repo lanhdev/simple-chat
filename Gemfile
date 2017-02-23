@@ -54,4 +54,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
 gem 'rails-assets-semantic', source: 'https://rails-assets.org'
-gem "table_print"
+gem 'table_print'
+gem 'faker'
