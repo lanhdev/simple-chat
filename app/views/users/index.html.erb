@@ -1,0 +1,18 @@
+<h1>Users</h1>
+
+<div class="ui cards">
+  <% @users.each do |user| %>
+    <div class="card">
+      <div class="content">
+        <div class="header"><%= user.name %></div>
+        <div class="description"><%= user.email %></div>
+      </div>
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui basic green button">Add Friend</div>
+          <div class="ui basic red button">Block</div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,47 @@
+<h1>Inbox</h1>
+
+<div class="ui grid">
+  <div class="four wide column">
+    <button class="ui red button">New Message</button>
+  </div>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui vertical menu">
+      <a href="#" class="active green item">
+        Inbox
+        <div class="ui green left pointing label">1</div>
+      </a>
+      <a href="#" class="item">
+        Sent
+        <div class="ui left pointing label">10</div>
+      </a>
+    </div>
+  </div>
+  <div class="twelve wide column">
+    <% if @messages.empty? %>
+      <div class="ui yellow message">Aww. No messages. No friends?</div>
+    <% end %>
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Sender</th>
+          <th>Subject</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @messages.each do |message| %>
+          <tr>
+            <td><%= message.sender || "No body no body but you" %></td>
+            <td><%= message.subject %></td>
+            <td><%= message.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>
