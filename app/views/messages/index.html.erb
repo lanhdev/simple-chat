@@ -2,7 +2,7 @@
 
 <div class="ui grid">
   <div class="four wide column">
-    <button class="ui red button">New Message</button>
+    <button class="ui basic red button"><%= link_to 'New Message', new_message_path %></button>
   </div>
 </div>
 
@@ -29,16 +29,26 @@
       <thead>
         <tr>
           <th class="four wide">Sender</th>
-          <th class="eight wide">Subject</th>
-          <th>Time</th>
+          <th class="six wide">Subject</th>
+          <th class="four wide">Time</th>
+          <th class="two wide">Status</th>
         </tr>
       </thead>
       <tbody>
         <% @messages.each do |message| %>
           <tr class=<%= message.unread ? "positive" : "" %>>
             <td><%= message.sender || "No body no body but you" %></td>
-            <td><%= link_to "#{message.subject}", message_path(message) %></td>
+            <td><%= message.subject %></td>
             <td><%= message.created_at.strftime("%b %d, %Y") %></td>
+            <td class="center aligned">
+              <button class="ui basic green button">
+                <% if message.unread %>
+                  <%= link_to "Unread", message_path(message) %>
+                <% else %>
+                  Read
+                <% end %>
+              </button>
+            </td>
           </tr>
         <% end %>
       </tbody>
