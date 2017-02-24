@@ -1,1 +1,24 @@
 <h1>New</h1>
+
+<%= form_for @message do |f| %>
+  <% if @message.errors.present? %>
+    <div class="ui red message"><%= @message.errors.full_messages.to_sentence %></div>
+  <% end %>
+
+  <div class="ui large form">
+    <div class="field">
+      <%= f.label :recipient_id %>
+      <%= f.select :recipient_id, @users.map { |u| [u.email, u.id] }, class: 'ui search dropdown' %>
+    </div>
+    <div class="field">
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+    </div>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <%= f.submit "Send", :disable_with => 'Sending...', class: 'ui green button' %>
+  </div>
+  
+<% end %>

@@ -15,11 +15,14 @@ class MessagesController < ApplicationController
   end
 
   def new
+    @users = current_user.friends
     @message = Message.new
   end
 
   def create
+    @users = current_user.friends
     @message = Message.new(message_params)
+    @message.sender = current_user
     if @message.save
       flash[:success] = 'Message sent'
       redirect_to root_path
@@ -35,6 +38,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:subject, :body, :sender_id, :recipient_id, :read_at)
+      params.require(:message).permit(:subject, :body, :recipient_id)
     end
 end
