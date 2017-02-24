@@ -2,7 +2,7 @@
 
 <div class="ui grid">
   <div class="four wide column">
-    <button class="ui basic red button"><%= link_to 'New Message', new_message_path %></button>
+    <a href="<%= new_message_path %>"><button class="ui large red button">New Message</button></a>
   </div>
 </div>
 
@@ -10,12 +10,12 @@
 
 <div class="ui grid">
   <div class="four wide column">
-    <div class="ui vertical menu">
-      <a href="#" class="active green item">
+    <div class="ui large vertical menu">
+      <a href="<%= received_messages_path %>" class="active green item">
         Inbox
         <div class="ui green left pointing label">1</div>
       </a>
-      <a href="#" class="item">
+      <a href="<%= sent_messages_path %>" class="item">
         Sent
         <div class="ui left pointing label">10</div>
       </a>
@@ -25,7 +25,7 @@
     <% if @messages.empty? %>
       <div class="ui yellow message">Aww. No messages. No friends?</div>
     <% end %>
-    <table class="ui celled table">
+    <table class="ui large celled green table">
       <thead>
         <tr>
           <th class="four wide">Sender</th>
@@ -41,17 +41,15 @@
             <td><%= message.subject %></td>
             <td><%= message.created_at.strftime("%b %d, %Y") %></td>
             <td class="center aligned">
-              <button class="ui basic green button">
-                <% if message.unread %>
-                  <%= link_to "Unread", message_path(message) %>
-                <% else %>
-                  Read
-                <% end %>
-              </button>
+              <% if message.unread %>
+                <a href="<%= message_path(message) %>"><button class="ui active green button">Unread</button></a>
+              <% else %>
+                <button class="ui disabled button">Read</button>
+              <% end %>
             </td>
           </tr>
         <% end %>
       </tbody>
-    </table>    
+    </table>
   </div>
 </div>

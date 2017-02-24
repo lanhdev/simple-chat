@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
     @messages = current_user.received_messages
   end
 
+  def sent
+    @messages = current_user.sent_messages
+  end
+
   def show
     @message.read_at = Time.now
     @message.save

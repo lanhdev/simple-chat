@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :messages
+  resources :friendships
+  resources :messages do
+    collection do
+      get 'received'
+      get 'sent'
+    end
+  end
   resources :sessions, only: [:new, :create] # equivalent: get 'sign_up' => 'sessions#new' get 'sign_in' => 'sessions#create'
   resources :users
   root 'home#index'
