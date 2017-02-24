@@ -1,7 +1,8 @@
 class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])
-    if @friendship.save
+    @backward_friendship = Friendship.new(user_id: params[:friend_id], friend_id: current_user.id)
+    if @friendship.save && @backward_friendship.save
       flash[:success] = 'Added friend'
       redirect_to root_path
     else
@@ -11,8 +12,10 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.friendships.find(params[:friend_id])
+    @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:friend_id])
+    @backward_friendship = Friendship.find_by(user_id: params[:friend_id], friend_id: current_user.id)
     @friendship.destroy
+    @backward_friendship.destroy
     flash[:info] = 'Aww, you two no longer friend. How sad !!!'
     redirect_to root_path
   end
