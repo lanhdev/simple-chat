@@ -7,7 +7,7 @@
         <div class="header"><%= user.name %></div>
         <div class="description"><%= user.email %></div>
       </div>
-      <%= link_to 'Add Friend', friendships_path(friend_id: user), method: 'post', class: 'ui basic green attached button' %>
+      <%= link_to 'Add Friend', friendships_path(friend_id: user), method: 'post', class: 'ui green attached button' %>
     </div>
   <% end %>
 </div>

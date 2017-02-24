@@ -1,0 +1,13 @@
+<h1>Friends</h1>
+
+<div class="ui cards">
+  <% @users.each do |user| %>
+    <div class="card">
+      <div class="content">
+        <div class="header"><%= user.friend.name %></div>
+        <div class="description"><%= user.friend.email %></div>
+      </div>
+      <%= link_to 'Unfriend', friendship_path(friend_id: user), method: :delete, data: { confirm: 'Are you sure' }, class: 'ui red attached button' %>
+    </div>
+  <% end %>
+</div>

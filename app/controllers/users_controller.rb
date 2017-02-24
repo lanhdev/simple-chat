@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @user = User.new(email: params[:email])
   end
 
+  def show
+    @users = current_user.friendships # Friendships of current user
+  end
+
   def create
     @user = User.new user_params
     if @user.save
