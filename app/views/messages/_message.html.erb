@@ -4,7 +4,7 @@
 <table class="ui large celled green table">
   <thead>
     <tr>
-      <th class="three wide">Sender</th>
+      <th class="three wide"><%= received ? 'Sender' : 'Recipient' %></th>
       <th class="five wide">Subject</th>
       <th class="four wide">Sent at</th>
       <th class="four wide">Status</th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr class=<%= message.unread ? "positive" : "" %>>
-        <td><%= message.sender %></td>
+        <td><%= received ? message.sender : message.recipient %></td>
         <td><%= message.subject %></td>
         <td><%= message.created_at.strftime("%d %b %Y %l:%M %p") %></td>
         <% if received %>

@@ -56,3 +56,5 @@ gem 'rails_12factor', group: :production
 gem 'rails-assets-semantic', source: 'https://rails-assets.org'
 gem 'table_print'
 gem 'faker'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.3'

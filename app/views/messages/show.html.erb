@@ -16,7 +16,8 @@
       </div>
     </h3>
     <div class="ui large message">
-      <%= @message.body %>
+      <p><%= @message.body %></p>
+      <p><%= image_tag(@message.image, height: 320, width: 240) %></p>
     </div>
   </div>
 </div>

@@ -7,18 +7,27 @@ class Message < ApplicationRecord
   # add _id and use it foreign key
   belongs_to :sender, class_name: 'User'
   belongs_to :recipient, class_name: 'User'
+  mount_uploader :image, ImageUploader
   validates :subject, :body, presence: true
+  validates_processing_of :image
+  validate :image_size_validation
 
   def unread
     read_at ? false : true
   end
 
-  def self.generate_messages
-    5.times do
-      Message.create(subject: Faker::Lorem.word,
-                     body: Faker::Lorem.sentence,
-                     sender_id: rand(7..11),
-                     recipient_id: 6)
+  private
+    def image_size_validation
+      errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
     end
-  end
+
+  # Fake messages generator for testing purpose
+  # def self.generate_messages
+  #   5.times do
+  #     Message.create(subject: Faker::Lorem.word,
+  #                    body: Faker::Lorem.sentence,
+  #                    sender_id: rand(7..11),
+  #                    recipient_id: 6)
+  #   end
+  # end
 end
