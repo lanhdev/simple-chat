@@ -4,13 +4,20 @@
     <div class="ui large form">
       <%= form_tag sessions_path, method: 'post' do %>
         <div class="field">
-          <%= text_field_tag :email, params[:email] ,placeholder: 'Email' %>
+          <%= text_field_tag :email, params[:email], placeholder: 'Email' %>
         </div>
         <div class="field">
           <%= password_field_tag :password, nil, placeholder: 'Password' %>
         </div>
         <%= submit_tag 'Sign In', data: {disable_with: 'Signing In...'}, class: 'ui large green button' %>
+        <a href="/auth/facebook/callback" id="sign_in">
+          <button class="ui large facebook button">
+            <i class="facebook icon"></i>
+            Facebook
+          </button>
+        </a>
       <% end %>
+
     </div>
   </div>
 </div>
