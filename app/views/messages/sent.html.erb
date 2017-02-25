@@ -1,49 +1,12 @@
 <h1>Sent</h1>
 
-<div class="ui grid">
-  <div class="four wide column">
-    <a href="<%= new_message_path %>"><button class="ui large red button">New Message</button></a>
-  </div>
-</div>
-
-<div class="ui hidden divider"></div>
+<%= render 'messages/header' %>
 
 <div class="ui grid">
   <div class="four wide column">
-    <div class="ui large vertical menu">
-      <a href="<%= received_messages_path %>" class="item">
-        Inbox
-        <div class="ui left pointing label">1</div>
-      </a>
-      <a href="<%= sent_messages_path %>" class="active green item">
-        Sent
-        <div class="ui green left pointing label">10</div>
-      </a>
-    </div>
+    <%= render 'messages/sidemenu', received: false %>
   </div>
   <div class="twelve wide column">
-    <% if @messages.empty? %>
-      <div class="ui yellow message">Hey, you have not sent any messages lately</div>
-    <% end %>
-    <table class="ui large celled green table">
-      <thead>
-        <tr>
-          <th class="three wide">Sender</th>
-          <th class="five wide">Subject</th>
-          <th class="four wide">Sent at</th>
-          <th class="four wide">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @messages.each do |message| %>
-          <tr class=<%= message.unread ? "positive" : "" %>>
-            <td><%= message.sender %></td>
-            <td><%= message.subject %></td>
-            <td><%= message.created_at.strftime("%d %b %Y %l:%M %p") %></td>
-            <td><%= message.unread ? 'Unread' : message.read_at.strftime("%d %b %Y %l:%M %p") %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'messages/form', received: false %>
   </div>
 </div>

@@ -1,0 +1,27 @@
+<% if received %>
+  <div class="ui large vertical menu">
+    <a href="<%= received_messages_path %>" class="active green item">
+      Inbox
+      <% if current_user.received_messages.where(read_at: nil).any? %>
+        <div class="ui green left pointing label"><%= current_user.received_messages.where(read_at: nil).count %></div>
+      <% end %>
+    </a>
+    <a href="<%= sent_messages_path %>" class="item">
+      Sent
+      <div class="ui left pointing label"><%= current_user.sent_messages.count %></div>
+    </a>
+  </div>
+<% else %>
+  <div class="ui large vertical menu">
+    <a href="<%= received_messages_path %>" class="item">
+      Inbox
+      <% if current_user.received_messages.where(read_at: nil).any? %>
+        <div class="ui left pointing label"><%= current_user.received_messages.where(read_at: nil).count %></div>
+      <% end %>
+    </a>
+    <a href="<%= sent_messages_path %>" class="active green item">
+      Sent
+      <div class="ui green left pointing label"><%= current_user.sent_messages.count %></div>
+    </a>
+  </div>
+<% end %>

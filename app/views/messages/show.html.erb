@@ -1,6 +1,24 @@
-<% if require_login %>
-  <h1><%= @message.subject %></h1>
-  <%= @message.body %>
-  <%= @message.sender %>
-  <%= @message.recipient %>
-<% end %>
+<h1>New</h1>
+
+<%= render 'messages/header' %>
+
+<div class="ui grid">
+  <div class="four wide column">
+    <%= render 'messages/sidemenu', received: true %>
+  </div>
+  <div class="twelve wide column">
+    <h1 class="ui header"><%= @message.subject %></h1>
+    <div class="ui divider"></div>
+    <h3 class="ui header">
+      <div class="ui sub header">From: 
+        <div class="ui green label"><%= @message.sender %></div>
+        <div class="ui basic label"><%= @message.created_at.strftime("%b %d, %Y") %></div>
+      </div>
+    </h3>
+    <div class="ui large message">
+      <%= @message.body %>
+    </div>
+  </div>
+</div>
+
+

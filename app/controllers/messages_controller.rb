@@ -10,8 +10,13 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message.read_at = Time.now
-    @message.save
+    if current_user.id == @message.recipient_id
+      @message.read_at = Time.now
+      @message.save
+    else
+      flash[:error] = 'You have no authorize to read this message'
+      redirect_to new_session_path
+    end
   end
 
   def new

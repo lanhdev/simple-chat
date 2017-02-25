@@ -1,0 +1,33 @@
+<% if @messages.empty? %>
+  <div class="ui yellow message">Hey, you have not sent any messages lately</div>
+<% end %>
+<table class="ui large celled green table">
+  <thead>
+    <tr>
+      <th class="three wide">Sender</th>
+      <th class="five wide">Subject</th>
+      <th class="four wide">Sent at</th>
+      <th class="four wide">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr class=<%= message.unread ? "positive" : "" %>>
+        <td><%= message.sender %></td>
+        <td><%= message.subject %></td>
+        <td><%= message.created_at.strftime("%d %b %Y %l:%M %p") %></td>
+        <% if received %>
+          <td class="center aligned">
+            <% if message.unread %>
+              <a href="<%= message_path(message) %>"><button class="ui active green button">Unread</button></a>
+            <% else %>
+              <button class="ui button" onclick="infoDisplay()">Read</button>
+            <% end %>
+          </td>
+        <% else %>
+          <td><%= message.unread ? 'Unread' : message.read_at.strftime("%d %b %Y %l:%M %p") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
