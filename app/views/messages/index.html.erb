@@ -39,7 +39,7 @@
           <tr class=<%= message.unread ? "positive" : "" %>>
             <td><%= message.sender %></td>
             <td><%= message.subject %></td>
-            <td><%= message.created_at.strftime("%b %d, %Y") %></td>
+            <td><%= message.created_at.strftime("%d %b %Y %l:%M %p") %></td>
             <td class="center aligned">
               <% if message.unread %>
                 <a href="<%= message_path(message) %>"><button class="ui active green button">Unread</button></a>

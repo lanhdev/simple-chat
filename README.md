@@ -4,7 +4,7 @@
 
 Submitted by: **Lanh Hoang**
 
-Time spent: **21** hours
+Time spent: **25** hours
 
 URL: **Insert your Heroku URL here**
 
@@ -48,9 +48,13 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+## Challengs
+
+- Many-to-Many association, self referential table
+
 ## Notes
 
-Describe any challenges encountered while building the app.
+- 
 
 ## License
 
