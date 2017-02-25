@@ -5,8 +5,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_many :friendships
   has_many :friends, through: :friendships
-  # has_many :backward_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
-  # has_many :backward_friends, through: :backward_friendships, source: :user
 
   def to_s
     name

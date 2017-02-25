@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :friendships
   resources :messages do
     collection do
-      get 'received'
+      get 'received' => 'messages#index'
       get 'sent'
     end
   end
