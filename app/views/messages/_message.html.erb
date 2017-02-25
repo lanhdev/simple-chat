@@ -1,5 +1,5 @@
 <% if @messages.empty? %>
-  <div class="ui yellow message">Hey, you have not sent any messages lately</div>
+  <div class="ui yellow message"><%= received ? 'Aww. No message, no friends?' : 'Hey, you have not sent any messages lately'%></div>
 <% end %>
 <table class="ui large celled green table">
   <thead>
