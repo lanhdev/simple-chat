@@ -1,31 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <div class="ui grid">
-    <div class="eight wide column">
-      <h1>Sign Up</h1>
+<div class="ui grid">
+  <div class="four wide column"></div>
 
-      <div class="ui large form">
-        <%= form_for @user do |f| %>
-          <% if @user.errors.any? %>
-            <div class="ui yellow message"><%= @user.errors.full_messages.to_sentence %></div>
-          <% end %>
-          <div class="field">
-            <%= f.text_field :name, placeholder: 'Name' %>
-          </div>
-          <div class="field">
-            <%= f.text_field :email, placeholder: 'Email' %>
-          </div>
-          <div class="field">
-            <%= f.password_field :password, placeholder: 'Password' %>
-          </div>
-          <%= f.submit "Register", class: 'ui large green button' %>
-        <% end %>
+  <div class="eight wide column">
+    <h1 class="ui center aligned icon header">
+      <i class="green add user icon"></i>
+      Sign Up
+    </h1>
+
+    <div class="ui large attached positive message">
+      <div class="header">
+        Welcome to our site!
       </div>
+      <p>Fill out the form below to sign-up for a new account</p>
+    </div>
+
+    <form class="ui large form attached fluid segment">
+      <%= form_for @user do |f| %>
+        <% if @user.errors.any? %>
+          <div class="ui yellow message"><%= @user.errors.full_messages.to_sentence %></div>
+        <% end %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: 'Name' %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, placeholder: 'Email' %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: 'Password' %>
+        </div>
+        <%= f.submit "Register", class: 'ui large green button' %>
+      <% end %>
+    </form>
+    <div class="ui large bottom attached warning message">
+      <i class="icon help"></i>
+      Already signed up? <a href="<%= new_session_path %>">Sign in here</a> instead.
     </div>
   </div>
-</body>
-</html>
+
+  <div class="four wide column"></div>
+</div>

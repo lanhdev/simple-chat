@@ -1,7 +1,28 @@
 <div class="ui grid">
+  <div class="four wide column"></div>
+
   <div class="eight wide column">
-    <h1>Sign In</h1>
-    <div class="ui large form">
+    <h1 class="ui center aligned icon header">
+      <i class="green sign in icon"></i>
+      Sign In
+    </h1>
+  </div>
+
+  <div class="four wide column"></div>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui grid">
+  <div class="column"></div>
+
+  <div class="seven wide column">
+    <div class="ui large attached positive message">
+      <div class="header">
+        Signin Into Your Account
+      </div>
+    </div>
+    <form class="ui large form attached fluid segment">
       <%= form_tag sessions_path, method: 'post' do %>
         <div class="field">
           <%= text_field_tag :email, params[:email], placeholder: 'Email' %>
@@ -10,13 +31,24 @@
           <%= password_field_tag :password, nil, placeholder: 'Password' %>
         </div>
         <%= submit_tag 'Sign In', data: {disable_with: 'Signing In...'}, class: 'ui large green button' %>
-        <a href="/auth/facebook" id="sign_in">
-          <button class="ui large facebook button">
-            <i class="facebook icon"></i>
-            Facebook
-          </button>
-        </a>
       <% end %>
+    </form>
+    <div class="ui large bottom attached warning message">
+      <i class="icon help"></i>
+      Don't have an account? <a href="<%= new_user_path %>">Sign up here</a>
     </div>
   </div>
+  <div class="column">
+    <div class="ui vertical divider">Or</div>
+  </div>
+  <div class="four wide middle aligned column">
+    <a href="/auth/facebook">
+      <button class="ui large facebook button">
+        <i class="facebook icon"></i>
+        Sign In with Facebook
+      </button>
+    </a>
+  </div>
+
+  <div class="four wide column"></div>
 </div>
