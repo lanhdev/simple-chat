@@ -56,7 +56,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-- 
+- Authentication with Facebook: https://quip.com/qVfjAlbpNbDh
 
 ## License
 
