@@ -17,7 +17,9 @@
     </h3>
     <div class="ui large message">
       <p><%= @message.body %></p>
-      <p><%= image_tag(@message.image, height: 320, width: 240) %></p>
+      <% if @message.image.present? %>
+        <p><%= image_tag(@message.image, height: 320, width: 240) %></p>
+      <% end %>
     </div>
   </div>
 </div>
