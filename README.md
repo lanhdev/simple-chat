@@ -6,7 +6,7 @@ Submitted by: **Lanh Hoang**
 
 Time spent: **32** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://snapmessenger.herokuapp.com**
 
 ## User Stories
 
