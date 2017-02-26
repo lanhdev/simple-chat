@@ -4,7 +4,7 @@
 
 Submitted by: **Lanh Hoang**
 
-Time spent: **32** hours
+Time spent: **36** hours
 
 URL: **https://snapmessenger.herokuapp.com**
 
@@ -38,7 +38,7 @@ The following **optional** functionality is complete:
 
 The following **additional** features are implemented:
 
-- [ ] (List anything else that you can get done to improve the app functionality!)
+- [x] Use AWS bucket to store image attachment
 
 ## Video Walkthrough 
 
@@ -48,10 +48,11 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-## Challengs
+## Challenges
 
 - Many-to-Many association, self referential table
 - Login with Facebook
+- Config CarrierWave to connect AWS bucket
 
 ## Notes
 
